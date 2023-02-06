@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mixin.dev/mixin-node-sdk": "^4.9.0",
+    "clipboard": "^2.0.11",
     "uuid": "^9.0.0",
     "validator": "^13.7.0",
     "vue": "^3.2.45",

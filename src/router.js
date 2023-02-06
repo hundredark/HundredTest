@@ -1,20 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from './pages/Home.vue';
-import Auth from './pages/Auth.vue';
-import Multisig from './pages/Multisig.vue';
 
 const routes = [
   {
     path: '/',
-    component: Home
+    component: import('./pages/Home.vue'),
   },
   {
     path: '/auth',
-    component: Auth
+    component: import('./pages/Auth.vue'),
+  },
+  {
+    path: '/test',
+    component: import('./pages/Test.vue'),
   },
   {
     path: '/multisig',
-    component: Multisig
+    component: import('./pages/Multisig.vue'),
   }
 ]
 
