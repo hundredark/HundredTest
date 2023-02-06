@@ -1,8 +1,8 @@
 <template>
   <div>
     <div>
-      <template v-for="(tag, i) in menu" :key="i">
-        <RouterLink :to="tag.to">{{ tag.text }}</RouterLink>
+      <template v-for="(tag, i) in routes" :key="i">
+        <RouterLink v-if="!!tag.name" :to="tag.path" class="ml-6">{{ tag.name }}</RouterLink>
       </template>
     </div>
   </div>
@@ -10,11 +10,5 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
-
-const menu = [
-  {
-    text: '多签',
-    to: '/multisig'
-  }
-];
+import { routes } from '../router';
 </script>

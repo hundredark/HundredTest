@@ -1,6 +1,7 @@
 <template>
   <div>
-    Hello, {{ user }}
+    <div>你好, {{ user }}</div>
+    <button v-show="user !== 'Guest'" @click="logOut">注销</button>
   </div>
 </template>
 
@@ -9,6 +10,13 @@
   import { useUserClient } from '../utils/api';
 
   const user = ref("Guest");
+
+  const logOut = () => {
+    window.localStorage.clear();
+    setTimeout(() => {
+      window.location.href = window.location.origin;
+    }, 100);
+  }
 
   onMounted(async () => {
     const client = useUserClient();

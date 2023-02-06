@@ -5,10 +5,9 @@
 <script>
 import { useRouter } from 'vue-router';
 import { getED25519KeyPair } from '@mixin.dev/mixin-node-sdk';
-import { getUrlParameter, ls, useUserClient, BotKeystore, BotSecret } from '../utils';
+import { getUrlParameter, ls, useUserClient } from '../utils';
 
 export default {
-  props: ['client', 'setKeystore'],
   // eslint-disable-next-line consistent-return
   setup() {
     const router = useRouter();
@@ -29,10 +28,10 @@ export default {
 
     const client = useUserClient();
     client.oauth.getToken(
-      BotKeystore.client_id,
+      import.meta.env.VITE_CLIENT_ID,
       code,
       publicKey,
-      BotSecret
+      import.meta.env.VITE_CLIENT_SECRET
       // eslint-disable-next-line consistent-return
     ).then((resp) => {
       if (!resp) return useAccessDenied();
@@ -43,7 +42,7 @@ export default {
       ) return useAccessDenied();
 
       const keystore = {
-        user_id: BotKeystore.client_id,
+        user_id: import.meta.env.VITE_CLIENT_ID,
         scope,
         authorization_id,
         private_key: privateKey,
