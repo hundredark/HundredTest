@@ -22,7 +22,8 @@ export const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  
+  history: createWebHistory('/HundredTest/'),
   routes, // short for `routes: routes`
 })
 
