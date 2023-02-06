@@ -5,7 +5,8 @@
   </div>
   <div>
     <div>test</div>
-    <button class="test-btn">click</button>
+    <div><button class="test-btn">click</button></div>
+    <input class="border-black border-2" type="text" />
   </div>
 </template>
 
