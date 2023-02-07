@@ -7,7 +7,7 @@ import inject from '@rollup/plugin-inject';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "HundredTest",
+  base: "/HundredTest",
 
   plugins: [
     vue(),
@@ -38,5 +38,16 @@ export default defineConfig({
 				inject({ Buffer: ['buffer', 'Buffer'] })
 			],
 		},
-	}
+	},
+	
+  ssgOptions: {
+    script: 'async',
+    formatting: 'prettify',
+    mock: true, 
+    crittersOptions: {
+      // E.g., change the preload strategy
+      preload: 'media',
+      // Other options: https://github.com/GoogleChromeLabs/critters#usage
+    },
+  }
 })
