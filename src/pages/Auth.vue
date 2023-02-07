@@ -33,7 +33,7 @@ export default {
       if (!resp) return useAccessDenied();
 
       const { scope, authorization_id } = resp;
-      if (!pushScopeId) return useAccessDenied();
+      if (!scope) return useAccessDenied();
 
       const keystore = {
         user_id: import.meta.env.VITE_CLIENT_ID,
