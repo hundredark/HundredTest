@@ -1,8 +1,8 @@
 <template>
   <div>
     <div>你好, {{ user }}</div>
-    <button v-if="isLogged" @click="logIn">登陆</button>
-    <button v-else @click="logOut">注销</button>
+    <button v-if="isLogged" @click="logOut">注销</button>
+    <button v-else @click="logIn">登陆</button>
   </div>
 </template>
 
