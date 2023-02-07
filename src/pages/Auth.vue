@@ -13,17 +13,13 @@ export default {
     const router = useRouter();
 
     const useAccessDenied = () => {
-      $message.error({
-        message: 403,
-        showClose: true,
-      });
-      location.href = 'https://developers.mixin.one/'
+      router.push('/')
     };
 
     const error = getUrlParameter('error');
-    if (error === 'access_denied') return useAccessDenied();
-
     const code = getUrlParameter('code');
+    if (error === 'access_denied' || !code) return useAccessDenied();
+
     const { privateKey, publicKey } = getED25519KeyPair();
 
     const client = useUserClient();
@@ -37,9 +33,7 @@ export default {
       if (!resp) return useAccessDenied();
 
       const { scope, authorization_id } = resp;
-      if (
-        !scope
-      ) return useAccessDenied();
+      if (!pushScopeId) return useAccessDenied();
 
       const keystore = {
         user_id: import.meta.env.VITE_CLIENT_ID,

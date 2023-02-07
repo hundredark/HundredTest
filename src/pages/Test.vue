@@ -1,8 +1,8 @@
 <template>
-  <dvi>
+  <div>
     <div>test</div>
     <button class="test-btn">click</button>
-  </dvi>
+  </div>
 
 </template>
 
